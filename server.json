@@ -1,0 +1,17 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.mcp-dir/tjsc-mcp",
+  "title": "Jurisprudência TJSC",
+  "description": "Brazilian case law search for AI agents from the Santa Catarina state court (TJSC), plus 16 other co",
+  "version": "0.1.0",
+  "repository": {
+    "url": "https://github.com/mcp-dir/tjsc-mcp",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://api.mcp.ai/p_tjsc"
+    }
+  ]
+}

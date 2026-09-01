@@ -1,0 +1,39 @@
+# Smithery configuration for Jurisprudência TJSC
+# Schema: https://smithery.ai/docs/build/project-config
+# Remote HTTP MCP — server hosted at https://api.mcp.ai/p_tjsc
+
+name: tjsc-mcp
+displayName: "Jurisprudência TJSC"
+description: >
+  Pesquise jurisprudência do TJSC direto do Claude, ChatGPT ou do seu agente. Cada decisão traz órgão julgador, relator, data, o trecho que casou a busca e o link no site oficial. Decisão em segredo de justiça aparece com a ementa anonimizada, como o próprio tribunal publica. A mesma conexão alcança outros 16 tribunais. Grátis, sem login.
+
+version: 0.1.0
+license: MIT
+homepage: https://github.com/mcp-dir/tjsc-mcp
+repository: https://github.com/mcp-dir/tjsc-mcp
+
+tags:
+  - tjsc
+  - santa-catarina
+  - jurisprudencia
+  - familia
+  - tribunal-de-justica
+  - case-law
+  - brazil
+  - read-only
+  - no-auth
+  - free
+
+# Remote HTTP MCP — sem startCommand local (servidor já hospedado)
+startCommand:
+  type: http
+  url: https://api.mcp.ai/p_tjsc
+
+auth:
+  type: oauth2
+  resourceMetadataUrl: https://api.mcp.ai/p_tjsc/.well-known/oauth-protected-resource
+  fallback:
+    type: agent-auth
+    description: >
+      Para clientes sem OAuth 2.1. O agente expõe uma tool authenticate(token).
+      Usuário gera o JWT em https://app.mcp.ai/agent-auth e cola no chat.
